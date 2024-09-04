@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TemplateCV } from "./TemplateCV";
+// import { TemplateCV } from "./TemplateCV";
 
 function Form() {
     const [status, setStatus] = useState("typing");
@@ -9,7 +9,11 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setStatus("sent");
+        setStatus("submit");
+    }
+
+    const handleEdit = () => {
+        setStatus("edit")
     }
 
     const handleNameChange = (e) => {
@@ -24,56 +28,87 @@ function Form() {
     //     setPhone(e.target.value);
     // }
 
-    const isSent = status === 'sent';
+    const isSubmit = status === "submit";
+    const isEdit = status === "edit";
 
-    if (isSent) {
-        return (
-            <div>
-                <TemplateCV 
-                    name={name}
-                    // email={email}
-                    // phone={phone}
-                />
-                {/* <p>{name}</p> */}
-            </div>
-        )
-    }
+    // if (isSubmit) {
+    //     return (
+    //         <div>
+    //             <TemplateCV 
+    //                 name={name}
+    //                 // email={email}
+    //                 // phone={phone}
+    //             />
+    //             {/* <p>{name}</p> */}
+    //         </div>
+    //     )
+    // }
 
     return (
         <div>
-            <h1>Fill in the form to generate your CV</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:{" "}
-                    <input 
-                        type="text" 
-                        value={name}
-                        onChange={handleNameChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Email:{" "}
-                    <input 
-                        type="email" 
-                        name="email" 
-                        id="email"
-                        // value={handleEmailChange} 
-                    />
-                </label>
-                <br />
-                <label>
-                    Phone Number:{" "}
-                    <input 
-                        type="tel" 
-                        name="phone" 
-                        id="phone" 
-                        // value={handlePhoneChange}
-                    />
-                </label>
-                <br />
-                <button type="submit">Generate</button>
-            </form>
+            {isSubmit ? 
+            (
+                <div>
+                    <p>Name: {name}</p>
+                    <button onClick={handleEdit}>Edit</button>
+                </div>
+            ) 
+            : isEdit ?
+            (
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Name:{" "}
+                            <input 
+                                type="text" 
+                                value={name}
+                                onChange={handleNameChange}
+                            />
+                        </label>
+                        <br />
+                        <button type="submit">Generate</button>
+                    </form>
+                </div>
+            )
+            :
+            (
+                <div>
+                    <h1>Fill in the form to generate your CV</h1>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Name:{" "}
+                            <input 
+                                type="text" 
+                                value={name}
+                                onChange={handleNameChange}
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Email:{" "}
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email"
+                                // value={handleEmailChange} 
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Phone Number:{" "}
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                id="phone" 
+                                // value={handlePhoneChange}
+                            />
+                        </label>
+                        <br />
+                        <button type="submit">Generate</button>
+                    </form>
+                </div>
+            )
+            }   
         </div>
     )
 }

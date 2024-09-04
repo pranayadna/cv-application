@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+h1, h3 {
+    color: #102A72;
+}
+
+h3 ~ p {
+    margin-left: 10px;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+ul {
+    font-size: 0.8rem;
+    list-style: none;
+    margin-left: 10px;
+}
+
+.container {
+    /* height: 100vh; */
+    margin: 50px 400px;
+    /* display: grid;
+    grid-template-columns: 1fr 2fr; */
+}
+
+.dashed-line {
+    border: #000 1px dashed;
+}
+
+/* Header */
+header {
+    text-align: center; 
+}
+
+.subtitle {
+    margin: 10px 0;
+}
+
+/* Main Content */
+.main-content {
+    /* background-color: #eff6ff; */
+    padding: 10px 20px;
+    background-color: #bfdbfe;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); */
+    /* grid-column: 2 / 3; */
+    /* display: grid; */
+    /* grid-template-rows: repeat(2, 1fr); */
+    /* z-index: 1; */
+    /* height: 100vh; */
+}
+
+/* .top {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    margin-top: 15px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search form {
+    padding-left: 15px;
+    flex: 10;
+}
+
+.search-bar {
+    background-color: #bfdbfe;
+    border: none;
+    height: 25px;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    place-items: center;
+}
+
+.profile img, 
+.profile .account-name {
+    justify-self: end;
+}
+
+.below {
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: 1fr 13fr 7fr;
+    place-items: center;
+}
+
+.welcome {
+    margin-left: 25px;
+    justify-self: start;
+}
+
+.welcome .text {
+    font-size: 0.8rem;
+}
+
+.welcome .account-name {
+    font-size: 1.5rem;
+}
+
+.welcome .text,
+.welcome .account-name,
+.profile .account-name {
+    font-weight: 700;
+}
+
+.button-menu {
+    justify-self: end;
+}
+
+.button-menu > ul {
+    display: grid;
+    grid-template-columns: 112.88px 1fr 124.44px;
+    column-gap: 50px;
+} */
+
