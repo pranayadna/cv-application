@@ -38,6 +38,9 @@ ul {
 
 .container {
     margin: 50px 400px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 }
 
 .dashed-line {

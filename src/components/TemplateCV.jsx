@@ -1,11 +1,31 @@
+import { useState } from "react";
 import "./TemplateCV.css";
 
 function TemplateCV() {
+  const [status, setStatus] = useState("typing");
+
+  const handleEdit = () => {
+    setStatus("edit");
+  };
+
   return (
     <>
       <div className="container">
+        <button
+          style={{
+            marginBottom: "10px",
+            padding: "10px",
+            textAlign: "center",
+            alignSelf: "center",
+          }}
+        >
+          Edit CV
+        </button>
         <header>
-          <h1 contentEditable="true">John Doe</h1>
+          <h1 contentEditable="true" style={{ border: "1px solid #000" }}>
+            John Doe
+          </h1>
+
           <div className="subtitle">
             <p>6 Victory Way, Edinburgh EH2 09UH</p>
             <p>H: 07912345678M: 07912345678E: James.Brown@example.co.uk</p>
