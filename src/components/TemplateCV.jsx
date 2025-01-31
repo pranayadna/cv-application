@@ -27,11 +27,7 @@ function TemplateCV() {
   return (
     <>
       {isEdit ? (
-        <div
-          className="container"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="container">
           <button
             onClick={handleSubmit}
             style={{
@@ -44,9 +40,34 @@ function TemplateCV() {
             Submit CV
           </button>
           <header>
-            <h1 contentEditable="true" style={{ border: border }}>
+            {/* <h1
+              contentEditable
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              style={{ border: border }}
+            >
               John Doe
-            </h1>
+            </h1> */}
+            <input
+              // contentEditable
+              onChange={() => Event.target.value}
+              value={"John Doe"}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                textAlign: "center",
+                border: border,
+                color: "#102A72",
+                fontSize: "2em", // Large font size like h1
+                fontWeight: "bold", // Bold text like h1
+                padding: "0", // Remove default padding
+                margin: "0", // Remove default margin
+                outline: "none", // Remove focus outline
+                width: "100%", // Full width (optional)
+                background: "transparent", // Transparent background (optional)
+              }}
+            />
+
             <div className="subtitle">
               <p>6 Victory Way, Edinburgh EH2 09UH</p>
               <p>H: 07912345678M: 07912345678E: James.Brown@example.co.uk</p>
