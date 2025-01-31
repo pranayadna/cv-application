@@ -2,37 +2,84 @@ import { useState } from "react";
 import "./TemplateCV.css";
 
 function TemplateCV() {
-  const [status, setStatus] = useState("typing");
+  const [status, setStatus] = useState("finish");
+  const [border, setBorder] = useState("none");
+  const [name, setName] = useState("");
 
   const handleEdit = () => {
     setStatus("edit");
   };
 
+  const handleSubmit = () => {
+    setStatus("finish");
+  };
+
+  const handleMouseEnter = () => {
+    setBorder("1px solid #000");
+  };
+
+  const handleMouseLeave = () => {
+    setBorder("none");
+  };
+
+  const isEdit = status === "edit";
+
   return (
     <>
-      <div className="container">
-        <button
-          style={{
-            marginBottom: "10px",
-            padding: "10px",
-            textAlign: "center",
-            alignSelf: "center",
-          }}
+      {isEdit ? (
+        <div
+          className="container"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-          Edit CV
-        </button>
-        <header>
-          <h1 contentEditable="true" style={{ border: "1px solid #000" }}>
-            John Doe
-          </h1>
+          <button
+            onClick={handleSubmit}
+            style={{
+              marginBottom: "10px",
+              padding: "10px",
+              textAlign: "center",
+              alignSelf: "center",
+            }}
+          >
+            Submit CV
+          </button>
+          <header>
+            <h1 contentEditable="true" style={{ border: border }}>
+              John Doe
+            </h1>
+            <div className="subtitle">
+              <p>6 Victory Way, Edinburgh EH2 09UH</p>
+              <p>H: 07912345678M: 07912345678E: James.Brown@example.co.uk</p>
+            </div>
+          </header>
+        </div>
+      ) : (
+        <div className="container">
+          <button
+            onClick={handleEdit}
+            style={{
+              marginBottom: "10px",
+              padding: "10px",
+              textAlign: "center",
+              alignSelf: "center",
+            }}
+          >
+            Edit CV
+          </button>
+          <header>
+            <h1>John Doe</h1>
+            <div className="subtitle">
+              <p>6 Victory Way, Edinburgh EH2 09UH</p>
+              <p>H: 07912345678M: 07912345678E: James.Brown@example.co.uk</p>
+            </div>
+          </header>
+        </div>
+      )}
+    </>
+  );
 
-          <div className="subtitle">
-            <p>6 Victory Way, Edinburgh EH2 09UH</p>
-            <p>H: 07912345678M: 07912345678E: James.Brown@example.co.uk</p>
-          </div>
-        </header>
-
-        <div className="dashed-line"></div>
+  // {
+  /* <div className="dashed-line"></div>
 
         <div className="main-content">
           <h3>PROFESSIONAL SUMMARY</h3>
@@ -91,8 +138,8 @@ function TemplateCV() {
           <p>Television Production, 2015</p>
         </div>
       </div>
-    </>
-  );
+    </> */
+  // }
 }
 
 export { TemplateCV };
